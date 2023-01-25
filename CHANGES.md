@@ -12,6 +12,7 @@
 - Use `.obj` and other non-`.o` object extensions for compilers
   like MSVC.
   Thanks to Jonah Beckford for the patch.
+- Use `NAME.lib` and `dllNAME.dll` for MSVC library and stublib, respectively.
 
 v0.9.9 2022-05-31 Zagreb
 ------------------------
