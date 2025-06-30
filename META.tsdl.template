@@ -1,0 +1,18 @@
+description = "Thin bindings to SDL for OCaml"
+requires = "ctypes ctypes-foreign"
+archive(byte) = "tsdl.cma"
+archive(native) = "tsdl.cmxa"
+plugin(byte) = "tsdl.cma"
+plugin(native) = "tsdl.cmxs"
+
+package "top" (
+  directory = "top"
+  description = "Tsdl toplevel support"
+  #     No `compiler-libs.toplevel`, just like https://github.com/dbuenzli/tsdl/blob/049bf75d489bb9653a980726a9d08c95cb6e1547/pkg/META#L12.
+  #     Also confer https://github.com/dbuenzli/down/blob/af83546d9fe602c98cedb48c02ff6adcae922f58/pkg/META#L3
+  requires = "tsdl"
+  archive(byte) = "tsdl_top.cma"
+  archive(native) = "tsdl_top.cmxa"
+  plugin(byte) = "tsdl_top.cma"
+  plugin(native) = "tsdl_top.cmxs"
+)

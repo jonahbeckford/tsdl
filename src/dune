@@ -1,0 +1,28 @@
+(library
+ (name tsdl)
+ (public_name tsdl)
+ (modules tsdl tsdl_consts)
+ (libraries ctypes ctypes-foreign)
+ (flags :standard -w -3-27-33-35-39)
+ (foreign_stubs
+  (language c)
+  (names tsdl_stubs)
+  (flags (:standard (:include ../support/cfg/cflags.sexp))))
+ (c_library_flags (:include ../support/cfg/c_library_flags.sexp))
+ (wrapped false))
+
+(library
+ (name tsdl_top)
+ (public_name tsdl.top)
+ (modules tsdl_top)
+ (flags :standard -w -3-27-33-35-39)
+ (libraries tsdl compiler-libs.toplevel)
+ (wrapped false))
+
+(rule
+ (target tsdl_consts.ml)
+ (action (with-stdout-to %{target} (run %{exe:../support/consts.exe}))))
+
+(install
+ (section lib)
+ (files tsdl_top_init.ml))

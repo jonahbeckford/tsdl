@@ -31,13 +31,11 @@ doc: "https://erratique.ch/software/tsdl/doc/"
 bug-reports: "https://github.com/dbuenzli/tsdl/issues"
 depends: [
   "ocaml" {>= "4.08.0"}
-  "ocamlfind" {build}
-  "ocamlbuild" {build}
-  "topkg" {build & >= "1.0.3"}
+  "dune" {>= "3.12"}
   "conf-sdl2"
   "ctypes" {>= "0.14.0"}
   "ctypes-foreign"
 ]
 available: os-distribution != "opensuse-leap" | os-version >= "16"
-build: ["ocaml" "pkg/pkg.ml" "build" "--dev-pkg" "%{dev}%"]
-dev-repo: "git+https://erratique.ch/repos/tsdl.git"
+build: [[ "dune" "build" "-p" name ]]
+dev-repo: "git+https://github.com/jonahbeckford/tsdl.git"

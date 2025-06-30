@@ -1,0 +1,7 @@
+(executable
+ (name consts)
+ (foreign_stubs
+  (language c)
+  (names consts_stub)
+  (flags (:standard (:include cfg/cflags.sexp))))
+ (libraries ))
